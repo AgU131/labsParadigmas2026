@@ -2,43 +2,39 @@ import org.json4s._
 import org.json4s.jackson.JsonMethods._
 import scala.io.Source
 
-
+ 
 object Main {
   // Define `Subscription` as a simple tuple type alias
-  type Subscription = (String, String)
-
-  // Pure function to read subscriptions from a JSON file
-  def readSubscriptions(path: String): List[Option[Subscription]] = {
+  type Subscription = (String, String, String, Int)
+  // case class Subscription(
+  //   name: String,
+  //   url: String,
+  //   count: Int,
+  //   before: String
+  // )
+    // Pure function to read subscriptions from a JSON file
+  def readSubscriptions(path: String): Option[List[Subscription]] = {
     val source = Source.fromFile(path)
     val jsonString = source.mkString
     implicit val formats: Formats = DefaultFormats
 
     val json = parse(jsonString)
-    val subscriptions = json.extract[List[Map[String, String]]].map { item =>
-  //     try{
-  //       val url = item("url").extract[String]
-  //       val name = (item \ "name").extract[String]
-  //       val before = (item \ "before").extract[String]
-  //       val count = (item \ "count").extract[Int]
-  //       Some(name, (url+"?count="+count+"&before="+before))
-  //     } catch {
-  //       case _: Exception => None
-  //     }
-  //   }
-  //   val subscriptions = json.extract[List[Map[String, Any]]].map { item =>
-      try {
-        val url = item("url").toString
-        val name = item("name").toString
-        val before = item("before").toString
-        val count = item("count").toString.toInt
-
-        Some(name, s"$url?count=$count&before=$before")
-      } catch {
-        case _: Exception => None
+    val subscriptions = json.extract[List[Map[String, Any]]].map { subscriptionMap =>
+      if (subscriptionMap.contains("name") && subscriptionMap.contains("url") && subscriptionMap.contains("before") && subscriptionMap.contains("count")) {
+        Some((
+          subscriptionMap("name").asInstanceOf[String],
+          subscriptionMap("url").asInstanceOf[String],
+          subscriptionMap("before").asInstanceOf[String],
+          subscriptionMap("count").asInstanceOf[Int].toInt
+        ))
+      } else {
+        None
       }
     }
-    source.close()
-    subscriptions.toList
+    // finally {
+    //   source.close()
+    // }
+    Some(subscriptions.flatten)
   }
 
   def readPosts(url: String): List[String] = {
@@ -78,12 +74,15 @@ object Main {
 
     println("=======================")
     println("EJ1: LEER SUSCRIPCIONES")
-    val subscriptions: List[Option[Subscription]] = readSubscriptions("subscriptions.json")
-
-    // Print subscriptions read - We can use imperative for I/O
-    for (subscription <- subscriptions) {
-      println(subscription)
+    val subscriptions: Option[List[Subscription]] = readSubscriptions("subscriptions.json") match {
+      case None => List.empty
+      case Some(subscription) => subscription
+        // Print subscriptions read - We can use imperative for I/O
+        for (subscription <- subscriptions) {
+          println(subscription)
+        }
     }
+
 
     println("=======================")
     println("")
@@ -93,15 +92,9 @@ object Main {
     // Descargar y parsear los posts
     var allPosts: List[String] = List.empty
     for (subscription <- subscriptions) {
-      subscription.foreach { sub =>
-        var postTitles = readPosts(sub._2)
-        allPosts = allPosts ++ postTitles
-      }
+      var postTitles = readPosts(subscription._2)
+      allPosts = allPosts ++ postTitles
     }
-    // val allPosts: List[Post] = subscriptions.flatten.flatMap { subscription =>
-    //   println(subscription)
-    //   readPosts(subscription._2).flatten
-    // }
 
     println("=======================")
     println("")
