@@ -12,8 +12,7 @@ object Analyzer {
    * @return lista de entidades cuyo texto aparece en el texto analizado
    */
   def detectEntities(text: String, dictionary: List[NamedEntity]): List[NamedEntity] = {
-    val lowerText = text.toLowerCase
-    dictionary.filter(entity => lowerText.contains(entity.text.toLowerCase))
+    dictionary.filter(entity => entity.matches(text))
   }
 
   /**
