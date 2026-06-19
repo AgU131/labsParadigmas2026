@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/src/main/scala/NamedEntity.scala:22:18: not found: value Regex[0m
-[0m[[0m[31merror[0m] [0m[0m    val quoted = Regex.quote(this.text)[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/src/main/scala/Analyzer.scala:30:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mdef detectRelevant(text: String, dictionary: List[NamedEntity]): List[NamedEntity] = {[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

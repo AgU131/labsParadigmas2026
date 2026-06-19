@@ -24,4 +24,9 @@ object Analyzer {
   def countByType(entities: List[NamedEntity]): Map[String, Int] = {
     entities.groupBy(_.entityType).view.mapValues(_.size).toMap
   }
+
+  // Ej 2
+  def detectRelevant(text: String, dictionary: List[NamedEntity]): List[NamedEntity] = {
+    dictionary.filter(entity => entity.isRelevant && entity.matches(text))
+  }
 }

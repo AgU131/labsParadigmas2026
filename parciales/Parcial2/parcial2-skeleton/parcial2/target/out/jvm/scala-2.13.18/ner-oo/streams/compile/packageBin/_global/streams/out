@@ -4,6 +4,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/University.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Place.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Place.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Conference.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Conference.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Person.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Person.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Technology.class[0m
@@ -26,6 +28,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Main$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Analyzer.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Analyzer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Event.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Event.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Analyzer$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Paradigmas2026/labsParadigmas2026/parciales/Parcial2/parcial2-skeleton/parcial2/target/out/jvm/scala-2.13.18/ner-oo/classes/Analyzer$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Formatters$.class[0m

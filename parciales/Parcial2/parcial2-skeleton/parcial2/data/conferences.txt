@@ -1,0 +1,5 @@
+ICFP
+Scala Days
+Strange Loop
+JVM Language Summit
+ScalaMatsuri
