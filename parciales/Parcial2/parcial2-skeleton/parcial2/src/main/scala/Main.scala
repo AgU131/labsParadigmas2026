@@ -13,8 +13,9 @@ object Main {
       println(s"\n${"=" * 60}\n$url\n${"=" * 60}")
       titles.flatMap { title =>
         val entities = Analyzer.detectEntities(title, dictionary)
-        println(Formatters.formatNERResult(title, entities))
-        entities
+        println(Formatters.formatGroupedNERResult(title, entities))   // usamos eso en vez de formatNERResult
+        // Para las estadísticas globales seguimos usando TODAS las entidades
+        Analyzer.detectEntities(title, dictionary)
       }
     }
 
