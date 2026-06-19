@@ -17,10 +17,23 @@ abstract class NamedEntity(val text: String) {
    * Retorna una línea de descripción de la entidad para el informe.
    */
   def describe: String = s"[$entityType] $text"
+
+  // def matches(text: String): Boolean = {
+  //   val quoted = Regex.quote(this.text)
+  //   val pattern = s"(?i)(?<![a-zA-Z0-9])$quoted(?![a-zA-Z0-9])".r
+  //   pattern.findFirstIn(text).isDefined
+  // }
+  def matches(text: String): Boolean = {
+    val pattern = "(?i)(?<![a-zA-Z0-9])" + java.util.regex.Pattern.quote(this.text) + "(?![a-zA-Z0-9])"
+    pattern.r.findFirstIn(text).isDefined
+  }
 }
 
 class Person(text: String) extends NamedEntity(text) {
   def entityType: String = "Person"
+  override def matches(text: String): Boolean = {
+    text.contains(this.text)
+  }
 }
 
 class Organization(text: String) extends NamedEntity(text) {
@@ -36,7 +49,12 @@ class Place(text: String) extends NamedEntity(text) {
 }
 
 class Technology(text: String) extends NamedEntity(text) {
-  def entityType: String = "Technology"
+  override def entityType: String = "Technology"
+  override def matches(text: String): Boolean = {
+    val quoted = java.util.regex.Pattern.quote(this.text)
+    val pattern = s"(?<![a-zA-Z0-9])$quoted(?![a-zA-Z0-9])".r
+    pattern.findFirstIn(text).isDefined
+  }
 }
 
 class ProgrammingLanguage(text: String) extends Technology(text) {
