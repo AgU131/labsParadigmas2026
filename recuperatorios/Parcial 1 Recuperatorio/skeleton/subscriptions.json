@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Programming",
+    "url":"http://localhost:8123/r/programming/.json",
+    "before": "1set2gu",
+    "count": 10
+  },
+  {
+    "name": "Scala",
+    "url": "http://localhost:8123/r/scala/.json",
+    "before": "1sf58v3",
+    "count": 10
+  },
+  {
+    "name": "Learn Python",
+    "url": "http://localhost:8123/r/learnpython/.json"
+  },
+  {
+    "name": "Subreddit que no existe"
+  }
+]

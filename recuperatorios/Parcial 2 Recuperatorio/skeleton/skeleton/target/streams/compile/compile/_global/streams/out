@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/src/main/scala/Main.scala:24:30: not found: value countByType[0m
+[0m[[0m[31merror[0m] [0m[0m        val cantDetectadas = countByType(entities)[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

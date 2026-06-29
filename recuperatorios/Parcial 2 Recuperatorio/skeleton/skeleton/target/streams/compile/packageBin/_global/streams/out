@@ -1,0 +1,41 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/ner-oo_2.13-0.1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	University.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/University.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Place.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Place.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Person.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Person.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Technology.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Technology.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	FileIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/FileIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Organization.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Organization.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Formatters.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Formatters.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	ProgrammingLanguage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/ProgrammingLanguage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Dictionary.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Dictionary.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Dictionary$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Dictionary$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Analyzer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Analyzer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Analyzer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Analyzer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Formatters$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/Formatters$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	NamedEntity.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/NamedEntity.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	FileIO$$anonfun$extractPostTitles$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/FileIO$$anonfun$extractPostTitles$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	FileIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/agustin/Documents/Parcial 2 Recuperatorio/skeleton/skeleton/target/scala-2.13/classes/FileIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

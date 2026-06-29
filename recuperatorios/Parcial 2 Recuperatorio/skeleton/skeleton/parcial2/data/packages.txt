@@ -1,0 +1,7 @@
+# Librerias o Paquetes de Scala/JVM
+cats
+zio
+akka
+shapeless
+paaquete
+pack
