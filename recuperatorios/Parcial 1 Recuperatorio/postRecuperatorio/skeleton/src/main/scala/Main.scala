@@ -11,7 +11,7 @@ object Main {
     // Pure function to read subscriptions from a JSON file
   def readSubscriptions(path: String): List[Option[Subscription]] = {
     val source = Source.fromFile(path)
-    val jsonString = source.mkString
+    val jsonString = try {source.mkString} finally {source.close}
     implicit val formats: Formats = DefaultFormats
 
     val json = parse(jsonString)
@@ -21,7 +21,7 @@ object Main {
         val url = subscriptionMap("url").toString
         val before = subscriptionMap("before").toString
         val count = subscriptionMap("count").toString.toInt
-        
+
         Some((name, s"$url?count=$count&before=$before"))
       } catch {
         case _: Exception => None
@@ -33,8 +33,7 @@ object Main {
   def readPosts(url: String): List[Option[Post]] = {
     try {
       val source = Source.fromURL(url)
-      val jsonContent = source.mkString
-      source.close
+      val jsonContent = try {source.mkString} finally {source.close}
       implicit val formats: Formats = DefaultFormats
 
       val json = parse(jsonContent)
@@ -66,20 +65,24 @@ object Main {
     var allPosts: List[Post] = List.empty
 
     for (subscription <- subscriptions) {
-      val subscriptionName = subscription._1
-      val subscriptionUrl = subscription._2
+      subscription match {
+        case (Some(subscription)) =>
+          val subscriptionName = subscription._1
+          val subscriptionUrl = subscription._2
 
-      println(s"Descargando posts de: $subscriptionName")
-      var postsFromSubscription: List[Option[Post]] = readPosts(subscriptionUrl)
+          println(s"Descargando posts de: $subscriptionName")
+          var postsFromSubscription: List[Option[Post]] = readPosts(subscriptionUrl)
 
-      for (post <- postsFromSubscription) {
-        post match {
-          case None =>
-          case Some(post) => {
-            allPosts = allPosts :+ post
-            println(s"  - ${post._2}: ${post._1}")
+          for (post <- postsFromSubscription) {
+            post match {
+              case None =>
+              case Some(post) => {
+                allPosts = allPosts :+ post
+                println(s"  - ${post._2}: ${post._1}")
+              }
+            }
           }
-        }
+        case _ =>
       }
     }
 
