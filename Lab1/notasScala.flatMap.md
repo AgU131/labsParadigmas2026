@@ -4,6 +4,24 @@ Guía rápida sobre las tres funciones de transformación de colecciones (`List`
 
 ---
 
+## ⚡ map vs flatMap en 30 segundos
+
+* **`map`**: Transforma cada elemento, preservando la estructura. Si tenés una lista de $N$ elementos, obtenés una lista de $N$ resultados.
+```scala
+List(1, 2, 3).map(x => List(x, x))
+// Resultado: List(List(1,1), List(2,2), List(3,3))  ← lista de listas
+```
+
+* **`flatMap`**: Transforma cada elemento y aplana un nivel. Ideal cuando cada elemento produce una lista y querés una sola lista al final.
+```scala
+List(1, 2, 3).flatMap(x => List(x, x))
+// Resultado: List(1, 1, 2, 2, 3, 3)  ← lista plana
+```
+
+> 💡 **Caso real de uso:** Cada suscripción produce una `List[Post]` (muchos posts o vacía). Con `map` obtendrías una `List[List[Post]]` —inutilizable directamente—. Con `flatMap` obtenés una `List[Post]` directamente, que es lo que necesitás.
+
+---
+
 ## 1. 🔄 map
 Transforma cada elemento de una colección de forma individual. 
 * Devuelve una **nueva colección con el mismo tamaño** que la original.
