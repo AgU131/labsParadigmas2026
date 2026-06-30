@@ -5,8 +5,8 @@ import scala.io.Source
 
 object Main {
   // Define `Subscription` as a simple tuple type alias
-  type Subscription = (String, String)
-  type Post = (String, String)
+  type Subscription = (String, String)  // (name, url)
+  type Post = (String, String)          // (title, author)
 
     // Pure function to read subscriptions from a JSON file
   def readSubscriptions(path: String): List[Option[Subscription]] = {
@@ -33,7 +33,8 @@ object Main {
   def readPosts(url: String): List[Option[Post]] = {
     try {
       val source = Source.fromURL(url)
-      val jsonContent = try {source.mkString} finally {source.close}
+      val jsonContent = source.mkString
+      source.close
       implicit val formats: Formats = DefaultFormats
 
       val json = parse(jsonContent)
@@ -62,28 +63,16 @@ object Main {
 
     val subscriptions: List[Option[Subscription]] = readSubscriptions("subscriptions.json")
 
-    var allPosts: List[Post] = List.empty
-
-    for (subscription <- subscriptions) {
-      subscription match {
-        case (Some(subscription)) =>
-          val subscriptionName = subscription._1
-          val subscriptionUrl = subscription._2
-
-          println(s"Descargando posts de: $subscriptionName")
-          var postsFromSubscription: List[Option[Post]] = readPosts(subscriptionUrl)
-
-          for (post <- postsFromSubscription) {
-            post match {
-              case None =>
-              case Some(post) => {
-                allPosts = allPosts :+ post
-                println(s"  - ${post._2}: ${post._1}")
-              }
-            }
-          }
-        case _ =>
-      }
+    val allPosts: List[Post] = subscriptions.flatMap {
+      case None => List.empty
+      case Some((name, url)) =>              // == Some(subscription)
+        println(s"Descargando posts de: $name")
+        val posts = readPosts(url).flatten          //: List[Option[Post]]
+        posts.foreach {
+          case (title, author) =>
+            println(s"  - ${author}: ${title}")
+        }
+        posts
     }
 
     println("=======================")
