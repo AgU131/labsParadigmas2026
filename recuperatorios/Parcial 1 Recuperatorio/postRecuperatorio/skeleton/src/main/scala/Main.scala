@@ -74,14 +74,14 @@ object Main {
       .foreach { case (author, count) => println(s"- $author: $count") }
   }
   //con top n
-  def printTopAuthors(ranking: Map[String, Int], n: Int): Unit = {
-    println("=== Top autores ===")
-    ranking.toList
-      .sortBy { case (_, count) => -count }
-      .take(n)
-      .foreach { case (author, count) => println(s"- $author: $count") }
-  }
-  
+  // def printTopAuthors(ranking: Map[String, Int], n: Int): Unit = {
+  //   println("=== Top autores ===")
+  //   ranking.toList
+  //     .sortBy { case (_, count) => -count }
+  //     .take(n)
+  //     .foreach { case (author, count) => println(s"- $author: $count") }
+  // }
+
   // Main function to run
   def main(args: Array[String]): Unit = {
     val header = s"Reddit Post Parser\n${"=" * 40}"
@@ -105,7 +105,7 @@ object Main {
     println("=======================")
 
     val ranking = authorRanking(allPosts)
-    printTopAuthors(authorRanking(allPosts))
+    printTopAuthors(ranking)
     //printTopAuthors(ranking, 3)  //con top n
   }
 }
