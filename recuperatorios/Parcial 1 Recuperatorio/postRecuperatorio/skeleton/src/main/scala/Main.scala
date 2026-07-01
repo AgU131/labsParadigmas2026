@@ -10,24 +10,30 @@ object Main {
 
     // Pure function to read subscriptions from a JSON file
   def readSubscriptions(path: String): List[Option[Subscription]] = {
-    val source = Source.fromFile(path)
-    val jsonString = try {source.mkString} finally {source.close}
-    implicit val formats: Formats = DefaultFormats
+    try {
+      val source = Source.fromFile(path)
+      val jsonString = source.mkString
+      source.close
+      implicit val formats: Formats = DefaultFormats
 
-    val json = parse(jsonString)
-    val subscriptions = json.extract[List[Map[String, Any]]].map { subscriptionMap =>
-      try {
-        val name = subscriptionMap("name").toString
-        val url = subscriptionMap("url").toString
-        val before = subscriptionMap("before").toString
-        val count = subscriptionMap("count").toString.toInt
+      val json = parse(jsonString)
+      val subscriptions = json.extract[List[Map[String, Any]]].map { subscriptionMap =>
+        try {
+          val name = subscriptionMap("name").toString
+          val url = subscriptionMap("url").toString
+          val before = subscriptionMap("before").toString
+          val count = subscriptionMap("count").toString.toInt
 
-        Some((name, s"$url?count=$count&before=$before"))
-      } catch {
-        case _: Exception => None
+          Some((name, s"$url?count=$count&before=$before"))
+        } catch {
+          case _: Exception => None
+        }
       }
+      subscriptions.toList
     }
-    subscriptions.toList
+    catch {
+      case _: Exception => List.empty
+    }
   }
 
   def readPosts(url: String): List[Option[Post]] = {
