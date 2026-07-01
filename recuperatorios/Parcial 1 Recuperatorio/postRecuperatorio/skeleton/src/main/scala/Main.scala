@@ -57,18 +57,27 @@ object Main {
     }
   }
 
+  //Funcion Auxiliar: Calcula un ranking de los autores más activos (nombre autor, cantidad posts)
+  def authorRanking(posts: List[Post]): Map[String, Int] = {
+    val agrupado = posts.groupBy(post => post._2)   //agrupa los posts por autor, Post=(title, author)
+    agrupado.map {
+      case (author, posts) =>
+        (author, posts.size)
+    }
+  }
+
   // Main function to run
   def main(args: Array[String]): Unit = {
     val header = s"Reddit Post Parser\n${"=" * 40}"
 
     val subscriptions: List[Option[Subscription]] = readSubscriptions("subscriptions.json")
 
-    val allPosts: List[Post] = subscriptions.flatMap {
+    val allPosts: List[Post] = subscriptions.flatMap {    // flatMap hace todo en un solo paso — descarga, imprime, y acumula los posts para allPosts
       case None => List.empty
       case Some((name, url)) =>              // == Some(subscription)
         println(s"Descargando posts de: $name")
         val posts = readPosts(url).flatten          //: List[Option[Post]]
-        posts.foreach {
+        posts.foreach {   // foreach (imprime cada post) es la herramienta correcta cuando el único propósito es un efecto secundario (imprimir) y no necesitás transformar nada
           case (title, author) =>
             println(s"  - ${author}: ${title}")
         }
